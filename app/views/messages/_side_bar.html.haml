@@ -1,12 +1,16 @@
 .side-bar
   .side-bar-user-name
+    
     .sidebar-user-box
-      .left-name ats
+      .left-name 
+        = current_user.name
       .right-logo
         = link_to "#", class: "contents__btn", style:"color:white" do
           = icon('fas', 'edit')
-        = link_to "#", class: "contents__btn", style:"color:white" do
+        = link_to edit_user_path(current_user), class: "contents__btn", style:"color:white" do
           = icon('fas', 'cog')
+
+          
         
   .side-bar__group-list
     .group-box
