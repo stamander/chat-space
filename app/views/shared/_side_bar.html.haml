@@ -5,7 +5,7 @@
       .left-name 
         = current_user.name
       .right-logo
-        = link_to "#", class: "contents__btn", style:"color:white" do
+        = link_to new_group_path, class: "contents__btn", style:"color:white" do
           = icon('fas', 'edit')
         = link_to edit_user_path(current_user), class: "contents__btn", style:"color:white" do
           = icon('fas', 'cog')
@@ -16,3 +16,10 @@
     .group-box
       .group__name job
       .group__message まだメッセージがありません
+      -current_user.groups.each do |group|
+        .group
+        = link_to '#' do
+          .group__name
+            = group.name
+          .group__message
+            メッセージはまだありません。
