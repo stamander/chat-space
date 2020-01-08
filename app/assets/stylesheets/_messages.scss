@@ -135,14 +135,18 @@
     padding: 20px 40px;
     background-color: #ddd;
     position: relative;
-    display: flex;
-    .new-message{
+   
+    .new-message-box{
       height: 50px;
       width: 950px;
-      display: flex;
       background-color: white;
+     
+    
+      .new_message{
+        display: flex;
+        width: 950px;
       .input-box{
-  
+        border: none;
         height: 50px;
         width: 100%;
         font-size: 20px;
@@ -158,6 +162,7 @@
         }
       }
     }
+    }
   
   .send-btn{
     position: absolute;
@@ -166,7 +171,9 @@
     text-align: center;
     color: white;
     line-height: 50px;
+    top: 18px;
     right: 40px;
+  
   }
   }
   
