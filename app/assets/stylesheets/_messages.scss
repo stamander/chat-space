@@ -142,12 +142,12 @@
    
     .new-message-box{
       height: 50px;
-      width: 950px;
+      width: 80%;
       background-color: white;
       position: absolute;
       .new_message{
         display: flex;
-        width: 950px;
+        width: 100%;
       .input-box{
         border: none;
         height: 50px;
@@ -178,7 +178,7 @@
     border: 0px;
   
   
-  }
+    }
   }
   
   
