@@ -128,12 +128,20 @@
       
         }
       }
-    .message{
+      .message{
       font-size: 14px;
       color: #434A54;
+        .lower-message__content{
+        width: 100%;
+        font-size: 14px;
+        }
+        .lower-message__image{
+          size: auto;
+        }
       }
-    }
-  }
+     }
+   }
+ 
   .chat-main__message-form{
     height: 90px;
     padding: 20px 40px;
@@ -142,12 +150,12 @@
    
     .new-message-box{
       height: 50px;
-      width: 950px;
+      width: 80%;
       background-color: white;
       position: absolute;
       .new_message{
         display: flex;
-        width: 950px;
+        width: 100%;
       .input-box{
         border: none;
         height: 50px;
@@ -178,7 +186,7 @@
     border: 0px;
   
   
-  }
+    }
   }
   
   
