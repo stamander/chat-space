@@ -1,4 +1,4 @@
-.message-box
+.message-box{data: {message: {id: message.id}}}
   .message-name-date
     .message-name 
       = message.user.name
@@ -6,10 +6,8 @@
       =  message.created_at
       
 
-  .message{data: {message: {id: message.id}}}
+  .message
     - if message.content.present?
       %p.lower-message__content
         = message.content
       = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
-
-      
