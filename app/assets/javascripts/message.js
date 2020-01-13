@@ -59,11 +59,10 @@ $(function(){
           </p>
         </div>
       </div>`
-return html;
-
+    return html;
     }
-  
   }
+
   $('#new_message').on('submit', function(e){
     e.preventDefault()
     var formData = new FormData(this);
@@ -88,46 +87,42 @@ return html;
     .fail(function() {
       alert("メッセージ送信に失敗しました");
     });
-
-    var reloadMessages = function() {
-      //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
-      last_message_id = $('.message:last').data("message-id");
-      console.log(last_message_id);
-      $.ajax({
-        //ルーティングで設定した通り/groups/id番号/api/messagesとなるよう文字列を書く
-        url: "groups/last_message_id/api/messages",
-        //ルーティングで設定した通りhttpメソッドをgetに指定
-        type: 'get',
-        dataType: 'json',
-        //dataオプションでリクエストに値を含める
-        data: {id: last_message_id}
-      })
-      .done(function(messages) {
-        if (messages.length !== 0) {
-        var insertHTML = '';
-        $.each(messages, function(i, message) {
-          insertHTML += buildHTML(message)
-        });
-        $('.chat-main__message-list').append(insertHTML);
-        $('.chat-main__message-list').animate({ scrollTop: $('.chat-main__message-list')[0].scrollHeight});
-        $("#new_message")[0].reset();
-        $(".send-btn").prop("disabled", false);
-      }
-      
-
-
-        last_message_id = $('.message:last').data("message-id");
-        console.log('success');
-      })
-      .fail(function() {
-        console.log('error');
-      });
-      if (document.location.href.match(/\/groups\/\d+\/messages/)) {
-        setInterval(reloadMessages, 7000);
-      }
-      
-    };
   });
+
+  var reloadMessages = function() {
+    
+    last_message_id = $('.message:last').data("message-id");
+  
+    $.ajax({
+     
+      url: "api/messages",
+      
+      type: 'get',
+      dataType: 'json',
+      
+      data: {last_id: last_message_id}
+    })
+    .done(function(messages) {
+      if (messages.length !== 0) {
+      var insertHTML = '';
+      $.each(messages, function(i, message) {
+        insertHTML += buildHTML(message)
+      });
+      $('.chat-main__message-list').append(insertHTML);
+      $('.chat-main__message-list').animate({ scrollTop: $('.chat-main__message-list')[0].scrollHeight});
+      $(".new_message")[0].reset();
+      $(".send-btn").prop("disabled", false);
+    }
+    
+    })
+    .fail(function() {
+    });
+  };
+
+  if (document.location.href.match(/\/groups\/\d+\/messages/)) {
+    setInterval(reloadMessages, 7000);
+  }
+
 });
 
 

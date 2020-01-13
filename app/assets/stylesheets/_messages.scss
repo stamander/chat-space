@@ -128,12 +128,20 @@
       
         }
       }
-    .message{
+      .message{
       font-size: 14px;
       color: #434A54;
+        .lower-message__content{
+        width: 100%;
+        font-size: 14px;
+        }
+        .lower-message__image{
+          size: auto;
+        }
       }
-    }
-  }
+     }
+   }
+ 
   .chat-main__message-form{
     height: 90px;
     padding: 20px 40px;
