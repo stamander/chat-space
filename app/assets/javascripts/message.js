@@ -55,7 +55,7 @@ $(function(){
         </div>
        <div class="message">
           <p class="lower-message__image">
-            ${message.image}
+          <img src=${message.image}>
           </p>
         </div>
       </div>`
