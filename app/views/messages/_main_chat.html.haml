@@ -7,8 +7,8 @@
         %span<>
         Edit
     .member-name
+      Member:
       -@group.users.each do |user|
-        Member:
         = user.name 
   .chat-main__message-list
     = render @messages
